@@ -1,0 +1,18 @@
+*.class
+
+#maven
+target
+
+USER_HOME_IS_UNDEFINED
+
+#mac
+.DS_Store
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+#idea
+.idea/
+sqoop.iml
