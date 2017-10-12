@@ -15,14 +15,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
-
-
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
         </dependency>
-
 
         <dependency>
             <groupId>ch.vorburger.mariaDB4j</groupId>
@@ -44,6 +41,24 @@
             <artifactId>logback-classic</artifactId>
             <version>1.1.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.sqoop</groupId>
+            <artifactId>sqoop</artifactId>
+            <version>1.4.6</version>
+            <classifier>hadoop200</classifier>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>2.7.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
     </dependencies>
 
@@ -59,7 +74,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>uk.co.cds.GenerateHql</mainClass>
+                            <mainClass>uk.gov.gsi.hmrc.cds.data.GenerateHql</mainClass>
                         </manifest>
                     </archive>
                     <descriptors>
@@ -90,7 +105,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>uk.co.cds.GenerateHql</mainClass>
+                    <mainClass>uk.gov.gsi.hmrc.cds.data.GenerateHql</mainClass>
                 </configuration>
             </plugin>
 

@@ -1,4 +1,4 @@
-package uk.co.cds;
+package uk.gov.gsi.hmrc.cds.data;
 
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;
@@ -19,6 +19,11 @@ import java.util.List;
 
 public class GenerateHql {
 
+    public static final String CONNECTION_STRING = PropertiesFileUtil.getProperty("CONNECTION_STRING");
+    public static final String DB_NAME = PropertiesFileUtil.getProperty("DB_NAME");
+    public static final String USERNAME = PropertiesFileUtil.getProperty("USERNAME");
+    public static final int PORT = PropertiesFileUtil.getIntProperty("PORT");
+    public static final String DRIVER = PropertiesFileUtil.getProperty("DRIVER");
     private static final String SQL_FILE_EXTENSION = ".sql";
     private String resourcePath = "src/main/resources/";
     private static Logger logger = LoggerFactory.getLogger(GenerateHql.class);
@@ -45,7 +50,7 @@ public class GenerateHql {
             if (exitCode == 0) {
                 logger.info("*********Finished creating SQL***********");
                 addResourcesFolderToClasspath(new File(resourcePath));
-                new DatabaseLoader().populateInMemoryDbase(sqlFileName);
+                new HiveGenerator().generateHiveHql(resourcePath, sqlFileName);
             }
             logger.info("*********Finished creating hive HQL***********");
         } catch (InterruptedException e) {

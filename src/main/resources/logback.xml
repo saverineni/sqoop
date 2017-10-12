@@ -2,7 +2,7 @@
 <configuration>
     <appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <Pattern>%d{HH:mm:ss.SSS} >> %-3relative [%thread] %-5level	%logger{25} - %msg %n</Pattern>
+            <Pattern>%d{dd MMM yyyy HH:mm:ss.SSS} >> %-3relative [%thread] %-5level	%logger{25} - %msg %n</Pattern>
         </encoder>
     </appender>
 
@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <logger name="uk.co.cds" level="INFO"
+    <logger name="uk.gov.gsi.hmrc.cds.data" level="INFO"
             additivity="false">
         <appender-ref ref="consoleAppender" />
         <appender-ref ref="rollingFileAppender" />
