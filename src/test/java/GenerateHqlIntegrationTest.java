@@ -8,7 +8,7 @@ import java.nio.charset.Charset;
 
 import static org.junit.Assert.assertEquals;
 
-public class GenerateHqlIT {
+public class GenerateHqlIntegrationTest {
 
     private static final String SRC_TEST_RESOURCES = "src/test/resources/";
     private static final File EXPECTED_HIVE_FILE = new File(SRC_TEST_RESOURCES + "hivefiles/expected-DataVault_MySQLWB.q");
