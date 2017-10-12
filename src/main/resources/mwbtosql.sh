@@ -14,12 +14,11 @@ echo $INPUT
 echo $OUTPUT
 
 "$MYSQL_WORKBENCH" \
-  --open $INPUT \
+  --model $INPUT \
   --run-python "
 import os
 import grt
-from grt.modules import DbMySQLFE as fe
 c = grt.root.wb.doc.physicalModels[0].catalog
-fe.generateSQLCreateStatements(c, c.version, {})
-fe.createScriptForCatalogObjects(os.getenv('OUTPUT'), c, {})" \
+grt.modules.DbMySQLFE.generateSQLCreateStatements(c, c.version, {})
+grt.modules.DbMySQLFE.createScriptForCatalogObjects(os.getenv('OUTPUT'), c, {})" \
   --quit-when-done
